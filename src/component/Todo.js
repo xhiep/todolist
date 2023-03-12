@@ -1,19 +1,16 @@
 import Button from "@atlaskit/button";
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import CheckIcon from "@atlaskit/icon/glyph/check";
 
 const StyledButton = styled(Button)`
   margin-top: 5px;
-&,&:hover{
-  ${(p) => p.isCompleted &&
-    css`
-      text-decoration: line-through;
-    `}
-}
-
-
+  &.isCompleted {
+    text-decoration: line-through;
+  }
+  
   text-align: left;
+  
   &:hover {
     .check-icon {
       display: inline-block;
@@ -30,11 +27,9 @@ const StyledButton = styled(Button)`
 `;
 
 function Todo({ todo, onCheckBtnClick }) {
-    
   return (
-    
     <StyledButton
-      isCompleted={todo.isCompleted}
+      className={todo.isCompleted ? "isCompleted" : ""}
       shouldFitContainer
       iconAfter={
         !todo.isCompleted && (
@@ -47,5 +42,6 @@ function Todo({ todo, onCheckBtnClick }) {
     </StyledButton>
   );
 }
+
 
 export default Todo;
