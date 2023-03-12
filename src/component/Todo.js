@@ -43,5 +43,4 @@ function Todo({ todo, onCheckBtnClick }) {
   );
 }
 
-
 export default Todo;
